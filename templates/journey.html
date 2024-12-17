@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="journey-header parallax" data-speed="0.3">
+    <div class="container">
+        <h1 class="section-title" data-aos="fade-down">My Journey</h1>
+    </div>
+</section>
+
+<section class="timeline">
+    <div class="container">
+        <div class="timeline__wrapper">
+            {% for milestone in milestones %}
+            <div class="timeline__item" data-aos="fade-up">
+                <div class="timeline__content">
+                    <div class="timeline__date">{{ milestone.date }}</div>
+                    <h3>{{ milestone.title }}</h3>
+                    <p>{{ milestone.description }}</p>
+                    {% if milestone.gpa %}
+                    <div class="timeline__metric">
+                        <span>GPA:</span>
+                        <strong>{{ milestone.gpa }}</strong>
+                    </div>
+                    {% endif %}
+                    {% if milestone.percentage %}
+                    <div class="timeline__metric">
+                        <span>Percentage:</span>
+                        <strong>{{ milestone.percentage }}</strong>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

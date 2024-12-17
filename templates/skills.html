@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="skills-header parallax" data-speed="0.3">
+    <div class="container">
+        <h1 class="section-title" data-aos="fade-down">Skills & Expertise</h1>
+    </div>
+</section>
+
+<section class="skills">
+    <div class="container">
+        <!-- Technical Skills -->
+        <div class="skills__section" data-aos="fade-up">
+            <h2>Technical Skills</h2>
+            <div class="skills__grid">
+                {% for category, skills in technical_skills.items() %}
+                <div class="skills__category">
+                    <h3>{{ category }}</h3>
+                    <div class="skills__list">
+                        {% for skill, proficiency in skills.items() %}
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>{{ skill }}</span>
+                                <span>{{ proficiency }}%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: {{ proficiency }}%" data-aos="slide-right"></div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skills__section" data-aos="fade-up">
+            <h2>Soft Skills</h2>
+            <div class="soft-skills__grid">
+                {% for skill in soft_skills %}
+                <div class="soft-skill-item" data-aos="zoom-in">
+                    <div class="soft-skill-icon">
+                        <i class="{{ skill.icon }}"></i>
+                    </div>
+                    <h4>{{ skill.name }}</h4>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

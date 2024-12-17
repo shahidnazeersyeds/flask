@@ -1,0 +1,77 @@
+// Skills Page Styles
+.skills {
+    padding: 4rem 0;
+    
+    &__section {
+        margin-bottom: 4rem;
+    }
+    
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+    
+    &__category {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        
+        h3 {
+            color: $primary-color;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+.skill-item {
+    margin-bottom: 1.5rem;
+    
+    .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+    
+    .skill-bar {
+        height: 8px;
+        background: rgba($primary-color, 0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .skill-progress {
+        height: 100%;
+        background: $primary-color;
+        border-radius: 4px;
+        transition: width 1s ease-in-out;
+    }
+}
+
+.soft-skills__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.soft-skill-item {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+    }
+    
+    .soft-skill-icon {
+        font-size: 2.5rem;
+        color: $primary-color;
+        margin-bottom: 1rem;
+    }
+}

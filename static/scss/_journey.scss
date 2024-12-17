@@ -1,0 +1,106 @@
+// Journey Page Styles
+.timeline {
+    padding: 4rem 0;
+    
+    &__wrapper {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: $primary-color;
+        }
+    }
+    
+    &__item {
+        margin-bottom: 3rem;
+        position: relative;
+        width: calc(50% - 30px);
+        
+        &:nth-child(odd) {
+            margin-left: auto;
+            
+            .timeline__content::before {
+                left: -36px;
+            }
+        }
+        
+        &:nth-child(even) {
+            .timeline__content::before {
+                right: -36px;
+            }
+        }
+    }
+    
+    &__content {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        position: relative;
+        
+        &::before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: $primary-color;
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    
+    &__date {
+        color: $primary-color;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+    
+    &__metric {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        
+        span {
+            color: $text-color;
+            opacity: 0.8;
+        }
+        
+        strong {
+            color: $primary-color;
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+@media (max-width: $breakpoint-md) {
+    .timeline {
+        &__wrapper::before {
+            left: 0;
+        }
+        
+        &__item {
+            width: calc(100% - 30px);
+            margin-left: 30px;
+            
+            &:nth-child(odd) {
+                margin-left: 30px;
+                
+                .timeline__content::before {
+                    left: -36px;
+                }
+            }
+            
+            &:nth-child(even) .timeline__content::before {
+                left: -36px;
+            }
+        }
+    }
+}

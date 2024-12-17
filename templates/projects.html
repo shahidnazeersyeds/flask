@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="projects-header parallax" data-speed="0.3">
+    <h1 data-aos="fade-down">My Projects</h1>
+</section>
+
+<section class="projects-filter">
+    <div class="container">
+        <div class="filter-buttons" data-aos="fade-up">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="data-science">Data Science</button>
+            <button class="filter-btn" data-filter="web-development">Web Development</button>
+            <button class="filter-btn" data-filter="business-analytics">Business Analytics</button>
+        </div>
+    </div>
+</section>
+
+<section class="projects">
+    <div class="container">
+        <div class="projects__grid">
+            {% for project in projects %}
+            <div class="projects__card" data-category="{{ project.category|lower|replace(' ', '-') }}" data-aos="fade-up">
+                <div class="projects__card-image">
+                    <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.title }}">
+                </div>
+                <div class="projects__card-content">
+                    <h3>{{ project.title }}</h3>
+                    <p class="category">{{ project.category }}</p>
+                    <p class="description">{{ project.description }}</p>
+                    <div class="tools">
+                        {% for tool in project.tools %}
+                        <span class="tool-tag">{{ tool }}</span>
+                        {% endfor %}
+                    </div>
+                    <div class="metrics">
+                        {% for metric, value in project.metrics.items() %}
+                        <div class="metric">
+                            <span class="metric-label">{{ metric }}</span>
+                            <span class="metric-value">{{ value }}%</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
